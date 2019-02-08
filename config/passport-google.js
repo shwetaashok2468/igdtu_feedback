@@ -13,7 +13,8 @@ module.exports = function (passport) {
                 callbackURL: '/google-auth/google/callback',
                 proxy: true,
                 scope: ['profile', 'email']
-            }, (accessToken, refreshToken, profile, done) => {
+            }, (accessToken, refreshToken, profile, done) =>
+            {
                 const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
                 console.log(profile);
 
@@ -27,20 +28,21 @@ module.exports = function (passport) {
                         if (user) {
 
                             if (user.googleID.length > 0) {
-                                if(profile.domain==="appstreet.io") {
+                                if(profile._json.domain==="igdtuw.ac.in") {
 
                                     console.log("Google User exists");
                                     done(null, user);
                                 }
                                 else
                                 {
+
                                     console.log("only igdtuw mail allowed");
                                     done(null,false);
                                 }
                             }
                             else {
 
-                                if (profile.domain === "appstreet.io") {
+                                if (profile._json.domain==="igdtuw.ac.in") {
                                     const newUser = new User({
                                         googleID: profile.id,
                                         image: image

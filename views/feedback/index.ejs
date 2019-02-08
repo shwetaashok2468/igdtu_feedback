@@ -40,20 +40,203 @@
 
 
     <% count = 0 %>
-    <% ideas.forEach(function (idea) { %>
+        <div class="card card-body">
+        <form>
+            <h3 class="mb-3">Faculty Name</h3>
+            <h5>PART-1: Imparting of knowledge/instructions as per curriculum with the prescribed manner.</h5>
+            <div class="form-group">
+                <label for="criteria1">The lecture were well structured and focused as per the course curriculum</label>
+                <select class="form-control" id="criteria1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
 
-    <div class="card card-body mb-3">
-        <h4><%= idea.title %></h4>
-        <p style="color: darkgrey"><%- idea.details %></p>
-        <a style="width:100px" class="btn btn-dark mb-2" href="/ideas/edit/<%= idea.id %>">Edit</a>
-        <form action="/ideas/<%= idea.id %>?_method=DELETE" method="post" style="width:100%">
-            <!--<a type="submit" href="/delete/idea.id" class="btn btn-danger" >Delete</a>-->
-            <input type="hidden" name="_method" value="DELETE">
-            <button type="submit" class="btn btn-danger" style="width:100px">Delete</button>
         </form>
-    </div>
+        </div>
 
-    <% }) %>
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+             <!----   <h3 class="mb-3">Faculty Name</h3>---->
+                <div class="form-group">
+                    <label for="criteria1">The Teacher has fair knowledge of the Subject.</label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+                <!----   <h3 class="mb-3">Faculty Name</h3>---->
+                <div class="form-group">
+                    <label for="criteria1">Methodology of teaching is stimulating and effective.</label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+                <!----   <h3 class="mb-3">Faculty Name</h3>---->
+                <div class="form-group">
+                    <label for="criteria1">The Teacher spends sufficient time for course coverage as per the syllabus.</label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+               <!----- <h3 class="mb-3">Faculty Name</h3>--->
+                <h5>PART-2:Participatory & Innovative T/L process with material based learning,case studies ,group discussions</h5>
+                <div class="form-group">
+                    <label for="criteria1">The Teacher encourages students to raise pertinent questions & makes lectures participative.</label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+                <!----- <h3 class="mb-3">Faculty Name</h3>--->
+               <!-- <h5>Participatory & Innovative T/L process with material based learning,case studies ,group discussions</h5>-->
+                <div class="form-group">
+                    <label for="criteria1">The Teacher gives assignments and solves typical problems/case studies in the class.</label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+
+
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+                <!----- <h3 class="mb-3">Faculty Name</h3>--->
+                <h5>PART-3: Student- Teacher relationship</h5>
+                <div class="form-group">
+                    <label for="criteria1">The Teacher adheres to schedules and enforces discipline.</label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+
+
+
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+                <!----- <h3 class="mb-3">Faculty Name</h3>--->
+               <!--- <h5>Participatory & Innovative T/L process with material based learning,case studies ,group discussions</h5>-->
+                <div class="form-group">
+                    <label for="criteria1">The Teacher uses ICT techniques in the class such as ppt/ohp besides chalk/marker Board.</label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+
+
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+                <!----- <h3 class="mb-3">Faculty Name</h3>--->
+               <!---- <h5>Participatory & Innovative T/L process with material based learning,case studies ,group discussions</h5>--->
+                <div class="form-group">
+                    <label for="criteria1">The Teacher has enthusiasm and concern for students.</label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+
+        <% count = 0 %>
+        <div class="card card-body">
+            <form>
+                <!----- <h3 class="mb-3">Faculty Name</h3>--->
+               <!--- <h5>Participatory & Innovative T/L process with material based learning,case studies ,group discussions</h5>-->
+                <div class="form-group">
+                    <label for="criteria1">The Teacher shows S/W implementation of problems/case studies/web based study material. </label>
+                    <select class="form-control" id="criteria1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+
 </div>
 
 <%- include('../partials/footer.ejs') %>
