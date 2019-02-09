@@ -13,6 +13,10 @@ const FacultySchema = new Schema({
     },
     subject_id:{
         type:String
+    },
+    criteria:{
+        type:Array,
+        default:0
     }
 });
 

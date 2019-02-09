@@ -19,46 +19,44 @@
     <% } %>
 
     <% if(!user.firstUser){ %>
-    <div class="card card-body mb-4  text-center">
-        <div class="mb-2" style="border-radius: 100px;margin:auto">
-            <div class=""
-                 style="background-image:url('<%= user.image %>'); width: 100px; height: 100px; background-position: center;background-size: contain">
-                <div class="imageArea" onmouseover="overlay()">
+        <div class="card card-body mb-4  text-center">
+            <div class="mb-2" style="border-radius: 100px;margin:auto">
+                <div class=""
+                     style="background-image:url('<%= user.image %>'); width: 100px; height: 100px; background-position: center;background-size: contain">
+                    <div class="imageArea" onmouseover="overlay()">
 
+                    </div>
                 </div>
-            </div>
 
+
+            </div>
+            <h2 class="mb-2">Welcome <%= user.name %></h2>
+            <p style="color: darkgrey"><%= user.email %></p>
+            <!--<a style="width:100px" class="btn btn-dark mb-2 main-button" href="/ideas/add/">Add Idea</a>-->
 
         </div>
-        <h2 class="mb-2">Welcome <%= user.name %></h2>
-        <p style="color: darkgrey"><%= user.email %></p>
-        <!--<a style="width:100px" class="btn btn-dark mb-2 main-button" href="/ideas/add/">Add Idea</a>-->
-
-    </div>
     <% } %>
 
     <% count = 0 %>
-    <form>
+        <form action="/feedback/submit_form" method="post">
         <div class="card card-body">
-
-
-            <h5 style="color: darkblue">PART-1: Imparting of knowledge/instructions as per curriculum with the prescribed manner.</h5>
+            <h5 style="color: darkblue">PART-1: Imparting of knowledge/instructions as per curriculum with the
+                prescribed manner.</h5>
             <div class="form-group">
-                <label style="color: black">The lecture were well structured and focused as per the course curriculum</label>
+                <label style="color: black">The lecture were well structured and focused as per the course
+                    curriculum</label>
                 <br>
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                    <label for="<%= "f"+i+"c1" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c1" %>">
-
-
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c1" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c1" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -77,15 +75,15 @@
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                    <label for="<%= "f"+i+"c2" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c2" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c2" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c2" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -100,20 +98,21 @@
 
             <!----   <h3 class="mb-3">Faculty Name</h3>---->
             <div class="form-group">
-                <label for="criteria1" style="color: black">Methodology of teaching is stimulating and effective.</label>
+                <label for="criteria1" style="color: black">Methodology of teaching is stimulating and
+                    effective.</label>
                 <br>
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                        <label for="<%= "f"+i+"c3" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c3" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c3" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c3" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -126,21 +125,22 @@
 
             <!----   <h3 class="mb-3">Faculty Name</h3>---->
             <div class="form-group">
-                <label for="criteria1" style="color: black">The Teacher spends sufficient time for course coverage as per the
+                <label for="criteria1" style="color: black">The Teacher spends sufficient time for course coverage as
+                    per the
                     syllabus.</label>
                 <br>
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= faculty.length;i++){ %>
-                        <label for="<%= "f"+i+"c4" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c4" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c4" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c4" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -153,24 +153,26 @@
         <div class="card card-body">
 
             <!----- <h3 class="mb-3">Faculty Name</h3>--->
-            <h5 style="color: darkblue">PART-2:Participatory & Innovative T/L process with material based learning,case studies ,group
+            <h5 style="color: darkblue">PART-2:Participatory & Innovative T/L process with material based learning,case
+                studies ,group
                 discussions</h5>
             <div class="form-group">
-                <label for="criteria1" style="color: black">The Teacher encourages students to raise pertinent questions & makes lectures
+                <label for="criteria1" style="color: black">The Teacher encourages students to raise pertinent questions
+                    & makes lectures
                     participative.</label>
                 <br>
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                        <label for="<%= "f"+i+"c5" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c5" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c5" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c5" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -185,21 +187,22 @@
             <!----- <h3 class="mb-3">Faculty Name</h3>--->
             <!-- <h5>Participatory & Innovative T/L process with material based learning,case studies ,group discussions</h5>-->
             <div class="form-group">
-                <label for="criteria1" style="color: black">The Teacher gives assignments and solves typical problems/case studies in the
+                <label for="criteria1" style="color: black">The Teacher gives assignments and solves typical
+                    problems/case studies in the
                     class.</label>
                 <br>
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                        <label for="<%= "f"+i+"c6" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c6" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c6" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c6" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -214,20 +217,21 @@
             <!----- <h3 class="mb-3">Faculty Name</h3>--->
             <h5 style="color: darkblue">PART-3: Student- Teacher relationship</h5>
             <div class="form-group">
-                <label for="criteria1" style="color: black">The Teacher adheres to schedules and enforces discipline.</label>
+                <label for="criteria1" style="color: black">The Teacher adheres to schedules and enforces
+                    discipline.</label>
                 <br>
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                        <label for="<%= "f"+i+"c7" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c7" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c7" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c7" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -242,21 +246,22 @@
             <!----- <h3 class="mb-3">Faculty Name</h3>--->
             <!--- <h5>Participatory & Innovative T/L process with material based learning,case studies ,group discussions</h5>-->
             <div class="form-group">
-                <label for="criteria1" style="color: black">The Teacher uses ICT techniques in the class such as ppt/ohp besides chalk/marker
+                <label for="criteria1" style="color: black">The Teacher uses ICT techniques in the class such as ppt/ohp
+                    besides chalk/marker
                     Board.</label>
                 <br>
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                        <label for="<%= "f"+i+"c8" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c8" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c8" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c8" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -276,15 +281,15 @@
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                        <label for="<%= "f"+i+"c9" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c9" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c9" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c9" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -299,21 +304,22 @@
             <!----- <h3 class="mb-3">Faculty Name</h3>--->
             <!--- <h5>Participatory & Innovative T/L process with material based learning,case studies ,group discussions</h5>-->
             <div class="form-group">
-                <label for="criteria1" style="color: black">The Teacher shows S/W implementation of problems/case studies/web based study
+                <label for="criteria1" style="color: black">The Teacher shows S/W implementation of problems/case
+                    studies/web based study
                     material. </label>
                 <br>
 
                 <div class="" style="padding:1.5%;border: #FFD0C5 2px solid">
                     <% for(i = 1;i <= 5;i++){ %>
-                        <label for="<%= "f"+i+"c10" %>"><%= faculty[i-1].name+" "%></label>
-                        <label style="color: #BB3F30">(<%= faculty[i-1].subject_name%>)</label>
-                    <select class="form-control" id="criteria1" name="<%= "f"+i+"c10" %>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                        <label for="<%= "f" + i + "c10" %>"><%= faculty[i - 1].name + " " %></label>
+                        <label style="color: #BB3F30">(<%= faculty[i - 1].subject_name %>)</label>
+                        <select class="form-control" id="criteria1" name="<%= "f" + i + "c10" %>">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
 
                     <% } %>
                 </div>
@@ -321,6 +327,7 @@
 
 
         </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
 

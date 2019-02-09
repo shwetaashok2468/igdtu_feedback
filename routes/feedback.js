@@ -17,6 +17,16 @@ router.get('/', ensureAuthenticated, (req, res) => {
         })
 });
 
+router.post('/submit_form', ensureAuthenticated,(req,res)=>{
+    (async()=>{
+        let faculty=await Faculty.find();
+
+        console.log(faculty);
+
+    })();
+
+})
+
 
 // router.get('/add', ensureAuthenticated, (req, res) => {
 //     console.log("/add", req.user.firstUser);

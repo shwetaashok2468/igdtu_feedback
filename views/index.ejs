@@ -1,22 +1,20 @@
+<%- include('partials/header.ejs') %>
 
-<%-include('partials/header.ejs')%>
-
-<%-include('partials/_navbar.ejs')%>
+<%- include('partials/_navbar.ejs') %>
 
 
 <div class="container">
     <div class="jumbotron text-center">
         <h3 class="display-5">Indira Gandhi Delhi Technical University for Women</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/en/4/4e/Indira_Gandhi_Delhi_Technical_University_for_Women_logo.png" class="responsive" align="center">
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/4e/Indira_Gandhi_Delhi_Technical_University_for_Women_logo.png"
+             class="responsive" align="center">
         <p class="lead">Feedback Portal</p>
-        <!----<a href="/ideas/add" class="btn btn-dark btn-lg">Add Video Idea</a>--->
-        <%if(!user){%>
-        <a href="/users/Login" class="btn btn-danger btn-lg">Login</a>
-        <%}%>
-
+        <% if(!user){ %>
+            <a href="/users/Login" class="btn btn-danger btn-lg">Login</a>
+        <% } %>
     </div>
 
 </div>
 
 
-<%-include('partials/footer.ejs')%>
+<%- include('partials/footer.ejs') %>
