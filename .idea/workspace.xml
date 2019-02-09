@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/views/feedback/index.ejs" line="139" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/views/feedback/index.ejs" line="185" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b9dbf07-ef13-4bd8-a913-756dcabe1d66" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/faculty.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/temp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/download.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/passport-google.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/passport-google.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/feedback.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/feedback/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/feedback/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/_navbar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/_navbar.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,44 +24,90 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/passport-google.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/feedback.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-921">
-              <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+            <state relative-caret-position="322">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/helpers/auth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/feedback/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="217" column="20" lean-forward="true" selection-start-line="217" selection-start-column="20" selection-end-line="219" selection-end-column="77" />
+              <folding>
+                <element signature="e#4414#4434#0#HTML" expanded="true" />
+                <element signature="e#8015#8035#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/feedback/index.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="225" column="130" selection-start-line="225" selection-start-column="130" selection-end-line="225" selection-end-column="130" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/partials/header.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="159">
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+        <entry file="file://$PROJECT_DIR$/views/partials/_navbar.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="127" column="24" lean-forward="true" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
+            <state relative-caret-position="782">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7">
+              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/download.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/users/login.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="943">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>video</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,9 +116,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/config/passport-google.js" />
         <option value="$PROJECT_DIR$/views/partials/header.ejs" />
+        <option value="$PROJECT_DIR$/models/users.js" />
+        <option value="$PROJECT_DIR$/models/faculty.js" />
+        <option value="$PROJECT_DIR$/models/temp.js" />
+        <option value="$PROJECT_DIR$/config/passport-google.js" />
+        <option value="$PROJECT_DIR$/helpers/auth.js" />
+        <option value="$PROJECT_DIR$/routes/feedback.js" />
+        <option value="$PROJECT_DIR$/views/partials/_navbar.ejs" />
         <option value="$PROJECT_DIR$/views/feedback/index.ejs" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
       </list>
     </option>
   </component>
@@ -85,7 +144,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,18 +154,12 @@
             <path>
               <item name="igdtu_feedback" type="b2602c69:ProjectViewProjectNode" />
               <item name="igdtu_feedback" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="igdtu_feedback" type="b2602c69:ProjectViewProjectNode" />
               <item name="igdtu_feedback" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="igdtu_feedback" type="b2602c69:ProjectViewProjectNode" />
-              <item name="igdtu_feedback" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="feedback" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="igdtu_feedback" type="b2602c69:ProjectViewProjectNode" />
@@ -119,6 +171,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -130,6 +183,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Shweta Ashok\Webstorm Projects\igdtu_feedback\views" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -143,13 +201,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.app.js">
     <configuration name="app.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/app.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="temp.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/models/temp.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.app.js" />
+        <item itemvalue="Node.js.temp.js" />
       </list>
     </recent_temporary>
   </component>
@@ -164,31 +226,33 @@
       <option name="presentableId" value="Default" />
       <updated>1549606214895</updated>
       <workItem from="1549606216216" duration="6680000" />
+      <workItem from="1549617671046" duration="15298000" />
+      <workItem from="1549701173955" duration="369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6680000" />
+    <option name="totallyTimeSpent" value="22347000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1536" height="864" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25216812" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25216812" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36260623" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36260623" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -198,31 +262,111 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/models/idea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/faculty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="127" column="24" lean-forward="true" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
+        <state relative-caret-position="23">
+          <caret line="16" selection-start-line="16" selection-end-line="20" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/temp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="63" column="14" lean-forward="true" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="72" column="19" lean-forward="true" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/passport-google.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/feedback.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-921">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        <state relative-caret-position="322">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/header.ejs">
+    <entry file="file://$PROJECT_DIR$/helpers/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="276">
+          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/_navbar.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/users/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/download.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/feedback/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="225" column="130" selection-start-line="225" selection-start-column="130" selection-end-line="225" selection-end-column="130" />
+        <state relative-caret-position="136">
+          <caret line="217" column="20" lean-forward="true" selection-start-line="217" selection-start-column="20" selection-end-line="219" selection-end-column="77" />
+          <folding>
+            <element signature="e#4414#4434#0#HTML" expanded="true" />
+            <element signature="e#8015#8035#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
         </state>
       </provider>
     </entry>

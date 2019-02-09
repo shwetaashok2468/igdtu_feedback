@@ -14,27 +14,29 @@ const UserSchema = new Schema({
 
     password: {
         type: String,
-        default:""
+        default: ""
     },
     date: {
         type: Date,
         default: Date.now()
     },
 
-    googleID:{
-        type:String,
-        default:""
+    googleID: {
+        type: String,
+        default: ""
     },
-    image:{
-        type:String
+    image: {
+        type: String
     },
-    firstUser:{
-        type:Boolean,
-        default:true
+    firstUser: {
+        type: Boolean,
+        default: true
+    },
+
+    isFaculty: {
+        type: Boolean,
+        default: false
     }
-
-
-
 
 
 });

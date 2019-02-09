@@ -2,7 +2,6 @@ module.exports=({
 
     ensureAuthenticated: function(req,res,next)
     {
-
         if(req.isAuthenticated()){
             console.log(req.user.firstUser);
             if(req.user.firstUser===false) {

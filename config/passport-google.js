@@ -13,8 +13,7 @@ module.exports = function (passport) {
                 callbackURL: '/google-auth/google/callback',
                 proxy: true,
                 scope: ['profile', 'email']
-            }, (accessToken, refreshToken, profile, done) =>
-            {
+            }, (accessToken, refreshToken, profile, done) => {
                 const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
                 console.log(profile);
 
@@ -28,21 +27,18 @@ module.exports = function (passport) {
                         if (user) {
 
                             if (user.googleID.length > 0) {
-                                if(profile._json.domain==="igdtuw.ac.in") {
+                                if (profile._json.domain === "igdtuw.ac.in") {
 
                                     console.log("Google User exists");
                                     done(null, user);
-                                }
-                                else
-                                {
+                                } else {
 
                                     console.log("only igdtuw mail allowed");
-                                    done(null,false);
+                                    done(null, false);
                                 }
-                            }
-                            else {
+                            } else {
 
-                                if (profile._json.domain==="igdtuw.ac.in") {
+                                if (profile._json.domain === "igdtuw.ac.in") {
                                     const newUser = new User({
                                         googleID: profile.id,
                                         image: image
@@ -51,8 +47,7 @@ module.exports = function (passport) {
                                         .then((user) => {
                                             done(null, user);
                                         })
-                                }
-                                else{
+                                } else {
                                     console.log("Only igdtuw mail allowed");
                                     done(null, false);
 
@@ -60,23 +55,28 @@ module.exports = function (passport) {
                             }
 
 
-                        }
-                        else {
+                        } else {
+
                             //Create user
+                          if(profile._json.domain==="igdtuw.ac.in"){
                             const newUser = new User({
                                 googleID: profile.id,
                                 email: profile.emails[0].value,
                                 image: image,
                                 name: profile.displayName,
-                                firstUser:true
+                                firstUser: true
                             });
                             newUser.save()
                                 .then((user) => {
-
                                     console.log("User not exists");
                                     done(null, user);
 
                                 })
+                        }
+                        else{
+                         console.log("only igdtuw email allowed");
+                         done(null, false);
+                          }
                         }
                     })
 

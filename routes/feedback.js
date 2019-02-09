@@ -2,27 +2,21 @@ var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 
-require('../models/idea');
-const Idea = mongoose.model('ideas');
+require('../models/faculty');
+const Faculty = mongoose.model('faculties');
 
 const {ensureAuthenticated} = require('../helpers/auth');
 
 //getting the idea page
 router.get('/', ensureAuthenticated, (req, res) => {
-    console.log("/", req.user.firstUser);
-    Idea.find({
-        user: req.user.id //this is from passport.js
-    })
-        .sort({date: 'desc'})
-        .then((ideas) => {
+    Faculty.find()
+        .then((faculty) => {
             res.render('feedback/index', {
-                ideas: ideas,
-
+                faculty: faculty,
             });
-
-
         })
 });
+
 
 // router.get('/add', ensureAuthenticated, (req, res) => {
 //     console.log("/add", req.user.firstUser);
