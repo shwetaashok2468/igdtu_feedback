@@ -20,8 +20,17 @@ router.get('/', ensureAuthenticated, (req, res) => {
 router.post('/submit_form', ensureAuthenticated,(req,res)=>{
     (async()=>{
         let faculty=await Faculty.find();
+        for(i=1;i<=faculty.length;i++)
+        {
+           let x=("f"+i+"c1");
+            let form_values=(req.body);
+            console.log(form_values);
+            console.log(form_values[Object.keys(form_values)[0]]);
+            console.log(form_values[Object.keys(form_values)[9]]);
 
-        console.log(faculty);
+
+        }
+
 
     })();
 
