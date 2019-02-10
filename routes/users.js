@@ -157,6 +157,10 @@ router.post('/setPassword', (req, res) => {
     if (req.body.password.length < 4) {
         errors.push({text: "Password length is less than 4"})
     }
+    if(req.body.batch==="select")
+    {
+        errors.push({text: "Select Your batch first"});
+    }
 
     if (errors.length > 0) {
         res.render('users/setPassword', {
@@ -173,6 +177,7 @@ router.post('/setPassword', (req, res) => {
                 bcrypt.hash(req.body.password, salt, (err, hash) => { //these two lines is used to convert entered password to hash
 
                     user.password = hash;
+                    user.batch=req.body.batch;
                     user.firstUser = false;
 
                     user.save()

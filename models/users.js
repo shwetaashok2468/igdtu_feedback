@@ -36,6 +36,9 @@ const UserSchema = new Schema({
     isFaculty: {
         type: Boolean,
         default: false
+    },
+    batch:{
+        type:String
     }
 
 

@@ -24,10 +24,11 @@ router.post('/submit_form', ensureAuthenticated,(req,res)=>{
             let form_values=(req.body);
             console.log(form_values.length);
            for(let j=1;j<=faculty.length;j++) {
-            for(let i=0;i<form_values.length;i++) {
+            for(let i=0;i<Object.entries(form_values).length;i++) {
                 let x="f"+j;
                 console.log(x);
-                if((Object.entries(form_values)[i][0]).search(x)>0){
+
+                if((Object.entries(form_values)[i][0]).search(x)>-1){
                     console.log(Object.entries(form_values)[i]);
 
                 }
