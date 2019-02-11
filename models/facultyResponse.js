@@ -5,6 +5,11 @@ const FacultyResponse = new Schema({
     student_id:{
         type:String
     },
+
+    batch:{
+        type:String
+    },
+
     response:[
         {
             faculty_id:{

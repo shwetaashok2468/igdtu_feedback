@@ -5,23 +5,44 @@ const mongoose = require('mongoose');
 require('../models/faculty');
 const Faculty = mongoose.model('faculties');
 
+require('../models/users');
+const User = mongoose.model('users');
+
 require('../models/facultyResponse');
 const FacultyResponse = mongoose.model('facultyResponse');
+
+
 
 const {ensureAuthenticated} = require('../helpers/auth');
 
 //getting the idea page
 router.get('/', ensureAuthenticated, (req, res) => {
 
-    Faculty.find({
-        batch: req.user.batch
-    })
-        .then((faculty) => {
-            console.log(faculty);
-            res.render('feedback/index', {
-                faculty: faculty[0].facultyList,
-            });
+    (async()=>{
+
+        let isSubmitted=await FacultyResponse.find({
+            student_id:req.user.id
         })
+
+        console.log(isSubmitted);
+
+
+    if(isSubmitted.length===0) {
+        Faculty.find({
+            batch: req.user.batch
+        })
+            .then((faculty) => {
+                console.log(faculty);
+                res.render('feedback/index', {
+                    faculty: faculty[0].facultyList,
+                });
+            })
+    }
+    else {
+        res.redirect('/feedback/success');
+    }
+
+    })();
 });
 
 router.post('/submit_form', ensureAuthenticated, (req, res) => {
@@ -37,6 +58,7 @@ router.post('/submit_form', ensureAuthenticated, (req, res) => {
         let response = [];
         let facultyResponse = new FacultyResponse();
         facultyResponse.student_id = req.user.id;
+        facultyResponse.batch=req.user.batch;
         for (let j = 1; j <= facultyList.length; j++) {
             let values = [];
             for (let i = 0; i < Object.entries(form_values).length; i++) {
@@ -57,6 +79,7 @@ router.post('/submit_form', ensureAuthenticated, (req, res) => {
         try {
             await facultyResponse.save();
             console.log("Saved");
+            res.redirect('/feedback/success')
         }
         catch (e) {
             console.log(error);
@@ -67,5 +90,8 @@ router.post('/submit_form', ensureAuthenticated, (req, res) => {
 
 });
 
+router.get('/success',ensureAuthenticated,(req,res)=>{
+    res.render('feedback/success');
+})
 
 module.exports = router;
