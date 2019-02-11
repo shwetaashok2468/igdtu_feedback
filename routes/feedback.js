@@ -62,7 +62,7 @@ router.post('/submit_form', ensureAuthenticated, (req, res) => {
         for (let j = 1; j <= facultyList.length; j++) {
             let values = [];
             for (let i = 0; i < Object.entries(form_values).length; i++) {
-                let x = "f" + 1;
+                let x = "f" + j;
                 if ((Object.entries(form_values)[i][0]).search(x) > -1) {
                     values.push(Object.entries(form_values)[i][1]);
                 }
