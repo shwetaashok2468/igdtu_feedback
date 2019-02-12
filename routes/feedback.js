@@ -5,149 +5,93 @@ const mongoose = require('mongoose');
 require('../models/faculty');
 const Faculty = mongoose.model('faculties');
 
+require('../models/users');
+const User = mongoose.model('users');
+
+require('../models/facultyResponse');
+const FacultyResponse = mongoose.model('facultyResponse');
+
+
+
 const {ensureAuthenticated} = require('../helpers/auth');
 
 //getting the idea page
 router.get('/', ensureAuthenticated, (req, res) => {
-    Faculty.find()
-        .then((faculty) => {
-            res.render('feedback/index', {
-                faculty: faculty,
-            });
+
+    (async()=>{
+
+        let isSubmitted=await FacultyResponse.find({
+            student_id:req.user.id
         })
+
+        console.log(isSubmitted);
+
+
+    if(isSubmitted.length===0) {
+        Faculty.find({
+            batch: req.user.batch
+        })
+            .then((faculty) => {
+                console.log(faculty);
+                res.render('feedback/index', {
+                    faculty: faculty[0].facultyList,
+                });
+            })
+    }
+    else {
+        res.redirect('/feedback/success');
+    }
+
+    })();
 });
 
-router.post('/submit_form', ensureAuthenticated,(req,res)=>{
-    (async()=>{
-        let faculty=await Faculty.find();
+router.post('/submit_form', ensureAuthenticated, (req, res) => {
+    (async () => {
+        //getting user batch
+        let batch = await Faculty.find({
+            batch: req.user.batch
+        });
 
-            let form_values=(req.body);
-            console.log(form_values.length);
-           for(let j=1;j<=faculty.length;j++) {
-            for(let i=0;i<Object.entries(form_values).length;i++) {
-                let x="f"+j;
-                console.log(x);
-
-                if((Object.entries(form_values)[i][0]).search(x)>-1){
-                    console.log(Object.entries(form_values)[i]);
-
+        //getting FacultyList for that batch
+        let facultyList = batch[0].facultyList;
+        let form_values = (req.body);
+        let response = [];
+        let facultyResponse = new FacultyResponse();
+        facultyResponse.student_id = req.user.id;
+        facultyResponse.batch=req.user.batch;
+        for (let j = 1; j <= facultyList.length; j++) {
+            let values = [];
+            for (let i = 0; i < Object.entries(form_values).length; i++) {
+                let x = "f" + j;
+                if ((Object.entries(form_values)[i][0]).search(x) > -1) {
+                    values.push(Object.entries(form_values)[i][1]);
                 }
             }
+            let object = {};
+            console.log(facultyList[j - 1]._id);
+            object.faculty_id = facultyList[j - 1]._id;
+            object.criteria = values;
+            response.push(object);
 
-            }
-           // /*}*/
+
+        }
+        facultyResponse.response = response;
+        try {
+            await facultyResponse.save();
+            console.log("Saved");
+            res.redirect('/feedback/success')
+        }
+        catch (e) {
+            console.log(error);
+        }
 
 
     })();
 
+});
+
+router.get('/success',ensureAuthenticated,(req,res)=>{
+    res.render('feedback/success');
 })
-
-
-// router.get('/add', ensureAuthenticated, (req, res) => {
-//     console.log("/add", req.user.firstUser);
-//     let errors = [];
-//     res.render('feedback/add', {
-//         errors: errors,
-//         title: req.body.title,
-//         details: req.body.details
-//     });
-//
-// });
-
-
-
-//
-//
-// //this is for process form
-// router.post('/add', (req, res) => {
-//
-//     let errors = [];
-//     if (!req.body.title) {
-//         errors.push({text: "title required"});
-//     }
-//     if (!req.body.details) {
-//         errors.push({text: "details required"});
-//     }
-//     if (errors.length > 0) {
-//
-//         console.log(errors);
-//         res.render('feedback/add', {
-//             errors: errors,
-//             title: req.body.title,
-//             details: req.body.details
-//         });
-//     }
-//     else {
-//
-//         const newUser = {
-//             title: req.body.title,
-//             details: req.body.details,
-//             user: req.user.id //from passport.js
-//         };
-//
-//         new Idea(newUser).save().then(() => {
-//
-//             req.flash("success_msg", "Successfully Added");
-//
-//             res.redirect('/feedback');
-//         })
-//
-//
-//     }
-//
-//
-// });
-//
-// router.get('/edit/:id', ensureAuthenticated, (req, res) => {
-//     Idea.findOne({
-//         _id: req.params.id,
-//         user: req.user.id
-//     })
-//         .then(idea => {
-//
-//
-//             res.render('feedback/edit', {
-//                 idea: idea
-//             });
-//         })
-//
-// });
-//
-//
-// router.put('/:id', ensureAuthenticated, (req, res) => {
-//     Idea.findOne({
-//         _id: req.params.id,
-//         user: req.user.id
-//
-//     })
-//         .then(idea => {
-//             idea.title = req.body.title;
-//             idea.details = req.body.details
-//
-//             idea.save()
-//                 .then(() => {
-//                     req.flash("success_msg", "successfully updated");
-//                     res.redirect('/feedback');
-//                 })
-//         })
-// });
-//
-// router.delete('/:id', ensureAuthenticated, (req, res) => {
-//     let id = req.params.id;
-//     Idea.findOneAndDelete({
-//         _id: id,
-//         user: req.user.id
-//
-//     })
-//         .then(() => {
-//             req.flash("success_msg", "successfully deleted");
-//             res.redirect('/feedback');
-//         })
-//
-// });
-
-
-
-
 
 module.exports = router;

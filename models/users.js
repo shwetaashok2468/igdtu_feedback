@@ -39,6 +39,11 @@ const UserSchema = new Schema({
     },
     batch:{
         type:String
+    },
+
+    isSubmitted:{
+        type:Boolean,
+        default:false
     }
 
 

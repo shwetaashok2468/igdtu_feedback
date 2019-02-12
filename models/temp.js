@@ -7,6 +7,7 @@ mongoose.connect("mongodb://brad:Yahoo123_@ds031203.mlab.com:31203/vidjot-prod",
     useNewUrlParser:true
 })
 const Faculty = mongoose.model('faculties');
+    let batch="0205";
     let igdtuFaculties=[
         {
             name: "Dr.Mohona Ghosh",
@@ -44,31 +45,52 @@ const Faculty = mongoose.model('faculties');
         }
     ];
 
-    for(let i=0;i<igdtuFaculties.length;i++)
-    {
 
-        let igdtuFaculties1=new Faculty({
-            name:igdtuFaculties[i].name,
-            email:igdtuFaculties[i].email,
-            subject_id:igdtuFaculties[i].subject_id,
-            subject_name:igdtuFaculties[i].subject_name
-        });
-        try{
-            console.log(i);
-        igdtuFaculties1.save()
-            .then(()=>{
-                console.log("saved");
-            })
-            .catch(err=>{
-                console.log(err);
-            })
+    let igdtu_0205=new Faculty({
+        batch:batch,
+        facultyList: igdtuFaculties
 
+    });
 
-        }
-        catch (e) {
-            console.log(e);
+    igdtu_0205.save()
+        .then(()=>{
+            console.log("saved");
+        })
 
+        .catch(()=>{
+            console.log("failed");
         }
 
-    }
+
+);
+
+
+
+    // for(let i=0;i<igdtuFaculties.length;i++)
+    // {
+    //
+    //     let igdtuFaculties1=new Faculty({
+    //         name:igdtuFaculties[i].name,
+    //         email:igdtuFaculties[i].email,
+    //         subject_id:igdtuFaculties[i].subject_id,
+    //         subject_name:igdtuFaculties[i].subject_name
+    //     });
+    //     try{
+    //         console.log(i);
+    //     igdtuFaculties1.save()
+    //         .then(()=>{
+    //             console.log("saved");
+    //         })
+    //         .catch(err=>{
+    //             console.log(err);
+    //         })
+    //
+    //
+    //     }
+    //     catch (e) {
+    //         console.log(e);
+    //
+    //     }
+    //
+    // }
 
