@@ -204,5 +204,18 @@ router.get('/logout',(req,res)=>{
 
 });
 
+router.get('/admin', (req,res)=>{
+    res.render('users/admin');
+});
 
+router.get('/add_batch', (req,res)=>
+{
+    res.render('users/add_batch');
+});
+
+
+router.get('/add_faculty', (req,res)=>
+{
+    res.render('users/add_faculty');
+});
 module.exports = router;
