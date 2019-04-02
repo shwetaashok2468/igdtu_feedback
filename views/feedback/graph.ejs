@@ -1,0 +1,91 @@
+<%-include('../partials/header.ejs')%>
+
+<%-include('../partials/_navbar.ejs')%>
+
+<div class ="container">
+    <div class="col-sm-6" style="margin:auto">
+    <canvas id ="mycharts">
+
+    </canvas>
+    </div>
+</div>
+
+
+<script>
+    let mycharts = document.getElementById('mycharts').getContext('2d');
+
+
+
+
+    let massPop = new Chart(mycharts,{
+
+        type: 'bar',
+        data:{
+            labels:['A','B','C','D','E','F'],
+            datasets:[{
+                label:'graph',
+                data:[
+                    100,
+                    200,
+                    300,
+                    400,
+                    500,
+                    600
+                ],
+
+                backgroundColor:[
+                    '#ff6384',
+                    '#36a2eb',
+                    '#cc65fe',
+                    '#ffce56',
+                    'aqua',
+                    'pink'
+                ],
+                borderWidth:1,
+                borderColor:'#190',
+                hoverBorderWidth:3,
+                hoverBorderColor:'#000'
+            }]
+
+        },
+        options: {
+            title:{
+                display: true,
+                text: 'Feedback Result',
+                fontSize:25
+            },
+            legend:{
+                display:true,
+                position:"right",
+                labels:{
+                    fontColor:'#000'
+                    }
+                },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 1000
+                    }
+                }]
+            }
+        }
+
+    });
+   // Chart.default.global.defaultFontFamily = 'Lato';
+    //Chart.default.global.defaultFontSize = 18;
+    //Chart.default.global.defaultFontColor = '#111';
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<%-include('../partials/footer.ejs')%>
