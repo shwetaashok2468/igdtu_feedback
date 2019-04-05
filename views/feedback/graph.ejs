@@ -23,7 +23,7 @@
     </div>
     <%}%>
 
-    <div class="row" style="padding-top: 30px">
+<div class="row">
     <div class="col-sm-6" style="margin:auto">
 
     <canvas id ="mycharts1">
@@ -36,7 +36,7 @@
 
             </canvas>
         </div>
-    </div>
+</div>
 </div>
 
 
@@ -50,7 +50,7 @@
     var massPop = new Chart(mycharts,{
 
 
-        type: 'bar',
+        type: 'line',
         data:{
             labels:[
                 <%for(let i=0;i<labels.length;i++){%>
@@ -65,7 +65,7 @@
                 label:'Total Performance',
                 data:[<%= data%>],
                 borderWidth:1,
-                borderColor:'#190',
+                borderColor:'rosybrown',
                 hoverBorderWidth:3,
                 hoverBorderColor:'#000'
             }]
@@ -80,10 +80,11 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        suggestedMin: 10
+                        suggestedMin: 0
                     }
                 }]
-            }
+            },
+
         }
 
     });
@@ -103,7 +104,7 @@
     var massPop = new Chart(mycharts,{
 
 
-        type: 'bar',
+        type: 'line',
         data:{
             labels:[
                 <%for(let i=0;i<labels.length;i++){%>
@@ -118,7 +119,7 @@
                 label:'Best Performance',
                 data:[<%= data%>],
                 borderWidth:1,
-                borderColor:'#190',
+                borderColor:'rosybrown',
                 hoverBorderWidth:3,
                 hoverBorderColor:'#000'
             }]
