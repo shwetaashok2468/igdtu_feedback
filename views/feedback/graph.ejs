@@ -3,44 +3,67 @@
 <%-include('../partials/_navbar.ejs')%>
 
 <div class ="container">
+    <% if(!user.firstUser){ %>
+    <div class="card card-body mb-4  text-center">
+        <div class="mb-2" style="border-radius: 100px;margin:auto">
+            <div class=""
+                 style="background-image:url('<%= user.image %>'); width: 100px; height: 100px; background-position: center;background-size: contain">
+                <div class="imageArea" onmouseover="overlay()">
+
+                </div>
+            </div>
+
+
+        </div>
+        <h2 class="mb-2">Welcome <%= user.name %></h2>
+        <p style="color: darkgrey"><%= user.email %></p>
+        <p style="color: darkgrey">You have submitted form. Below is the given performance of your teachers as filled by other students.</p>
+        <!--<a style="width:100px" class="btn btn-dark mb-2 main-button" href="/ideas/add/">Add Idea</a>-->
+
+    </div>
+    <%}%>
+
+    <div class="row" style="padding-top: 30px">
     <div class="col-sm-6" style="margin:auto">
-    <canvas id ="mycharts">
+
+    <canvas id ="mycharts1">
 
     </canvas>
+    </div>
+        <div class="col-sm-6" style="margin:auto">
+
+            <canvas id ="mycharts2">
+
+            </canvas>
+        </div>
     </div>
 </div>
 
 
 <script>
-    let mycharts = document.getElementById('mycharts').getContext('2d');
+    <%let labels=[];%>
+    <%performance.map(val=>{return labels.push(val.facultyName)});%>
 
+    <%let data=[];%>
+    <%performance.map(val=>{ return data.push(val.performance)});%>
+    var mycharts = document.getElementById('mycharts1').getContext('2d');
+    var massPop = new Chart(mycharts,{
 
-
-
-    let massPop = new Chart(mycharts,{
 
         type: 'bar',
         data:{
-            labels:['A','B','C','D','E','F'],
-            datasets:[{
-                label:'graph',
-                data:[
-                    100,
-                    200,
-                    300,
-                    400,
-                    500,
-                    600
-                ],
+            labels:[
+                <%for(let i=0;i<labels.length;i++){%>
+                '<%-labels[i]%>'
+                <%if(i!==labels.length-1){%>
+                <%=','%>
+                <%}%>
+                <%}%>
 
-                backgroundColor:[
-                    '#ff6384',
-                    '#36a2eb',
-                    '#cc65fe',
-                    '#ffce56',
-                    'aqua',
-                    'pink'
-                ],
+            ],
+            datasets:[{
+                label:'Total Performance',
+                data:[<%= data%>],
                 borderWidth:1,
                 borderColor:'#190',
                 hoverBorderWidth:3,
@@ -51,28 +74,75 @@
         options: {
             title:{
                 display: true,
-                text: 'Feedback Result',
+                text: 'Teacher vs Overall Performance',
                 fontSize:25
             },
-            legend:{
-                display:true,
-                position:"right",
-                labels:{
-                    fontColor:'#000'
-                    }
-                },
             scales: {
                 yAxes: [{
                     ticks: {
-                        suggestedMin: 50,
-                        suggestedMax: 1000
+                        suggestedMin: 10
                     }
                 }]
             }
         }
 
     });
+
+
    // Chart.default.global.defaultFontFamily = 'Lato';
+    //Chart.default.global.defaultFontSize = 18;
+    //Chart.default.global.defaultFontColor = '#111';
+</script>
+<script>
+    <%labels=[];%>
+    <%bestPerformance.map(val=>{return labels.push(val.facultyName)});%>
+
+    <%data=[];%>
+    <%bestPerformance.map(val=>{ return data.push(val.performance)});%>
+    var mycharts = document.getElementById('mycharts2').getContext('2d');
+    var massPop = new Chart(mycharts,{
+
+
+        type: 'bar',
+        data:{
+            labels:[
+                <%for(let i=0;i<labels.length;i++){%>
+                '<%-labels[i]%>'
+                <%if(i!==labels.length-1){%>
+                <%=','%>
+                <%}%>
+                <%}%>
+
+            ],
+            datasets:[{
+                label:'Best Performance',
+                data:[<%= data%>],
+                borderWidth:1,
+                borderColor:'#190',
+                hoverBorderWidth:3,
+                hoverBorderColor:'#000'
+            }]
+
+        },
+        options: {
+            title:{
+                display: true,
+                text: 'Teacher with most 4s and 5s',
+                fontSize:25
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 0
+                    }
+                }]
+            }
+        }
+
+    });
+
+
+    // Chart.default.global.defaultFontFamily = 'Lato';
     //Chart.default.global.defaultFontSize = 18;
     //Chart.default.global.defaultFontColor = '#111';
 </script>
