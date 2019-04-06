@@ -1,8 +1,7 @@
-<%-include('../partials/header.ejs')%>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/_navbar.ejs') %>
 
-<%-include('../partials/_navbar.ejs')%>
-
-<div class ="container">
+<div class="container">
     <% if(!user.firstUser){ %>
     <div class="card card-body mb-4  text-center">
         <div class="mb-2" style="border-radius: 100px;margin:auto">
@@ -17,65 +16,74 @@
         </div>
         <h2 class="mb-2">Welcome <%= user.name %></h2>
         <p style="color: darkgrey"><%= user.email %></p>
-        <p style="color: darkgrey">You have submitted form. Below is the given performance of your teachers as filled by other students.</p>
+        <p style="color: darkgrey">You have submitted form. Below is the given performance of your teachers as filled by
+            other students.</p>
         <!--<a style="width:100px" class="btn btn-dark mb-2 main-button" href="/ideas/add/">Add Idea</a>-->
 
     </div>
-    <%}%>
+    <% } %>
 
-<div class="row">
-    <div class="col-sm-6" style="margin:auto">
-
-    <canvas id ="mycharts1">
-
-    </canvas>
-    </div>
+    <div class="row">
         <div class="col-sm-6" style="margin:auto">
 
-            <canvas id ="mycharts2">
+            <div class="wrapper" style="height: 400px !important;">
+                <canvas id="mycharts1">
 
-            </canvas>
+                </canvas>
+            </div>
         </div>
-</div>
+        <div class="col-sm-6" style="margin:auto">
+
+            <div class="wrapper" style="height: 400px !important;">
+                <canvas id="mycharts2">
+
+                </canvas>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <script>
-    <%let labels=[];%>
-    <%performance.map(val=>{return labels.push(val.facultyName)});%>
+    <% let labels = []; %>
+    <% performance.map(val => {
+        return labels.push(val.facultyName)
+    }); %>
 
-    <%let data=[];%>
-    <%performance.map(val=>{ return data.push(val.performance)});%>
+    <% let data = []; %>
+    <% performance.map(val => {
+        return data.push(val.performance)
+    }); %>
     var mycharts = document.getElementById('mycharts1').getContext('2d');
-    var massPop = new Chart(mycharts,{
+    var massPop = new Chart(mycharts, {
 
 
         type: 'line',
-        data:{
-            labels:[
-                <%for(let i=0;i<labels.length;i++){%>
-                '<%-labels[i]%>'
-                <%if(i!==labels.length-1){%>
-                <%=','%>
-                <%}%>
-                <%}%>
+        data: {
+            labels: [
+                <% for(let i = 0;i < labels.length;i++){ %>
+                '<%- labels[i] %>'
+                <% if(i !== labels.length - 1){ %>
+                <%= ',' %>
+                <% } %>
+                <% } %>
 
             ],
-            datasets:[{
-                label:'Total Performance',
-                data:[<%= data%>],
-                borderWidth:1,
-                borderColor:'rosybrown',
-                hoverBorderWidth:3,
-                hoverBorderColor:'#000'
+            datasets: [{
+                label: 'Total Performance',
+                data: [<%= data %>],
+                borderWidth: 1,
+                borderColor: 'rosybrown',
+                hoverBorderWidth: 3,
+                hoverBorderColor: '#000'
             }]
 
         },
         options: {
-            title:{
+            title: {
                 display: true,
                 text: 'Teacher vs Overall Performance',
-                fontSize:25
+                fontSize: 25
             },
             scales: {
                 yAxes: [{
@@ -84,52 +92,57 @@
                     }
                 }]
             },
+                maintainAspectRatio: false,
 
         }
 
     });
 
 
-   // Chart.default.global.defaultFontFamily = 'Lato';
+    // Chart.default.global.defaultFontFamily = 'Lato';
     //Chart.default.global.defaultFontSize = 18;
     //Chart.default.global.defaultFontColor = '#111';
 </script>
 <script>
-    <%labels=[];%>
-    <%bestPerformance.map(val=>{return labels.push(val.facultyName)});%>
+    <% labels = []; %>
+    <% bestPerformance.map(val => {
+        return labels.push(val.facultyName)
+    }); %>
 
-    <%data=[];%>
-    <%bestPerformance.map(val=>{ return data.push(val.performance)});%>
+    <% data = []; %>
+    <% bestPerformance.map(val => {
+        return data.push(val.performance)
+    }); %>
     var mycharts = document.getElementById('mycharts2').getContext('2d');
-    var massPop = new Chart(mycharts,{
+    var massPop = new Chart(mycharts, {
 
 
         type: 'line',
-        data:{
-            labels:[
-                <%for(let i=0;i<labels.length;i++){%>
-                '<%-labels[i]%>'
-                <%if(i!==labels.length-1){%>
-                <%=','%>
-                <%}%>
-                <%}%>
+        data: {
+            labels: [
+                <% for(let i = 0;i < labels.length;i++){ %>
+                '<%- labels[i] %>'
+                <% if(i !== labels.length - 1){ %>
+                <%= ',' %>
+                <% } %>
+                <% } %>
 
             ],
-            datasets:[{
-                label:'Best Performance',
-                data:[<%= data%>],
-                borderWidth:1,
-                borderColor:'rosybrown',
-                hoverBorderWidth:3,
-                hoverBorderColor:'#000'
+            datasets: [{
+                label: 'Best Performance',
+                data: [<%= data %>],
+                borderWidth: 1,
+                borderColor: 'rosybrown',
+                hoverBorderWidth: 3,
+                hoverBorderColor: '#000'
             }]
 
         },
         options: {
-            title:{
+            title: {
                 display: true,
                 text: 'Teacher with most 4s and 5s',
-                fontSize:25
+                fontSize: 25
             },
             scales: {
                 yAxes: [{
@@ -137,7 +150,8 @@
                         suggestedMin: 0
                     }
                 }]
-            }
+            },
+            maintainAspectRatio: false
         }
 
     });
@@ -149,14 +163,4 @@
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-<%-include('../partials/footer.ejs')%>
+<%- include('../partials/footer.ejs') %>
