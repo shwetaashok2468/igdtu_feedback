@@ -7,8 +7,6 @@ require('../models/users');
 const User=mongoose.model('users');
 
 module.exports=((passport,req,res)=>{
-
-
     passport.use(new LocalStrategy(
         {
             usernameField: 'email'  //given email
@@ -37,7 +35,7 @@ module.exports=((passport,req,res)=>{
                                console.log("compare password");
 
                                bcrypt.compare(password, user.password, (err, isMatch) => {
-
+                                   //yh woh part hai code ka....jaha pe password login krne pe compare hta hai
                                    if (err) throw err;
                                    if (isMatch) {
                                        console.log("True")
